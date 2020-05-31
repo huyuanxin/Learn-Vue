@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script src="../js/vue.js"></script>
+
+	<div id="app">
+		<!--v-html指令,指接下来的内容为html格式的-->
+		<p v-html="url">github</p>
+
+	</div>
+
+<script>
+	const app=new Vue({
+		el:'#app',
+		data:{
+			url:'<a href="https://github.com/huyuanxin1999">github</a>'
+		},
+	})
+</script>
+</body>
+</html>
