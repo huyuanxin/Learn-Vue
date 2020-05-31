@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!--mustache语法也叫做双括号语法{{value}}-->
+	<script src="../js/vue.js"></script>
+
+	<div id="app">
+		<p>{{message}}</p>
+		<p>{{firstname+' '+lastname}}</p>
+		<p>{{firstname}} {{lastname}}</p>
+		<p>{{count * 2}}</p>
+
+	</div>
+
+<script>
+	const app=new Vue({
+		el:'#app',
+		data:{
+			message:"huyuanxin",
+			firstname:"yuanxin",
+			lastname:"hu",
+			count:100,
+		},
+	})
+</script>
+</body>
+</html>
