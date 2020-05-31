@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+    [v-cloak]{
+        display: none;
+    }
+</style>
+<body>
+	<script src="../js/vue.js"></script>
+    <!--v-cloak在vue渲染前存在，渲染之后被删除。可以用来控制是否显示，调试方法，注释对应的vue再打开-->
+	<div id="app" v-cloak>
+        <p>{{message}}</p>
+	</div>
+
+<script>
+//	const app=new Vue({
+//		el:'#app',
+//		data:{
+//			message:"huyuanxin"
+//		},
+//	})
+</script>
+</body>
+</html>
