@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+	.active{
+		color: lightblue;
+	}
+</style>
+<body>
+	<script src="../js/vue.js"></script>
+
+	<div id="app">
+		<!--绑定语法-->
+			<h2 v-bind:class="{active:isActive}">{{message}}</h2>
+			<!--绑定语法不影响单独的class属性-->
+			<h2 class="anotherClass" v-bind:class="{active:isActive}">{{message}}</h2>
+			<!--class可以用函数返回-->
+			<h2 class="anotherClass" v-bind:class="getClass()">{{message}}</h2>
+			<!--语法糖写法-->
+			<h2 class="anotherClass" :class="getClass()">{{message}}</h2>
+			<!--使用按钮控制是否使用active-->
+			<button @click="change">修改颜色</button>
+	</div>
+
+<script>
+	const app=new Vue({
+		el:'#app',
+		data:{
+			message:"huyuanxin",
+			isActive:true,
+		},
+		methods:{
+			change:function(){
+				this.isActive=!this.isActive
+			},
+			getClass:function(){
+				return {active:this.isActive}
+			}
+		}
+	})
+</script>
+</body>
+</html>
