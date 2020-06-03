@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script src="../js/vue.js"></script>
+
+	<div id="app">
+		<!--这是错误的方法，mustache语法不能赋值给熟悉，应该使用v-bind指令-->
+		<img src="{{url}}" alt="">
+		<!--正确方法如下-->
+		<img v-bind:src="url" alt="">
+		<!--语法糖写法-->
+		<img :src="url" alt="">
+	</div>
+
+<script>
+	const app=new Vue({
+		el:'#app',
+		data:{
+			url:"https://avatars1.githubusercontent.com/u/42336113?s=460&u=75a1508788388140d2c308874254336b5c200ac5&v=4",
+		},
+	})
+</script>
+</body>
+</html>
