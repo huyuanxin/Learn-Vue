@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<style>
+		.active{
+		color: lightblue;
+	}
+</style>
+<body>
+	<script src="../js/vue.js"></script>
+	<div id="app">
+		<ul>
+			<!--
+				<li v-for="item in list">{{item}}</li>
+			-->
+			<li v-for="(item,index) in list">
+				<h2 :class="{active:isActive[index]}" @click="change(index)">{{item}}</h2>
+			</li>
+		</ul>
+	</div>
+<script>
+	const app=new Vue({
+		el:'#app',
+		data:{
+			event:"why",
+			list:['hu','yuan','xin'],
+			isActive:[false,false,false],
+		},
+		methods:{
+			change:function(index){
+				/*
+					通过索引值修改不是响应式的
+					this.isActive[index]=!this.isActive[index]是不会动态响应的
+					this.isActive[num]=xxx也是不会动态响应的
+				*/
+				/*
+				可以动态响应的方法如下:
+				1.push
+					this.isActive.push(value) 在尾部添加一个
+				2.pop
+					this.isActive.pop() 删除最后一个
+				3.shift
+					this.isActive.shift() 删除第一个
+				4.unshift
+					this.isActive.unshift(value) 在首部添加一个
+				5.splice 可以用插入删除和替换
+					第一个参数为从第几个开始，第二个为删除(替换)几个(如果没有传,则删除全部,0为在后面插入).
+					如果有第三个参数,则是替换或者插入的值
+					this.isActive.splice()
+				6.sort
+					this.isActive.sort() 排序,参数可以添加函数
+				7.reverse
+					this.isActive.reverse() 反转
+				*/
+					var chageit=!this.isActive[index]			
+					this.isActive.splice(index,1,chageit)
+			},
+		}
+	})
+</script>
+</body>
+</html>
