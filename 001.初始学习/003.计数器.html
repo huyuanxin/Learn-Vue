@@ -8,22 +8,33 @@
 <body>
 	<script src="../js/vue.js"></script>
 	<div id="app">
-		<p>{{count}}</p>
-		<button @click="add">+</button>
-		<button @click="sub">-</button>
+		<p>{{count1}}</p>
+		<button v-on:click="add1">+</button>
+		<button v-on:click="sub1">-</button>
+		<!--语法糖写法-->
+		<p>{{count2}}</p>
+		<button @click="add2">+</button>
+		<button @click="sub2">-</button>
 	</div>
 <script>
 	const app=new Vue({
 		el:'#app',
 		data:{
-			count:0,
+			count1:0,
+			count2:0,
 		},
 		methods:{
-			add:function () {
-					this.count++;
+			add1:function () {
+					this.count1++;
 			},
-			sub:function () {
-					this.count--;
+			sub1:function () {
+					this.count1--;
+			},
+			add2:function () {
+					this.count2++;
+			},
+			sub2:function () {
+					this.count2--;
 			}
 		}
 	})
